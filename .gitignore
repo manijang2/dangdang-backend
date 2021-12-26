@@ -188,5 +188,4 @@ gradle-app.setting
 # gradle/wrapper/gradle-wrapper.properties
 
 /gradle/wrapper/*
-gradlew
 gradlew.bat
