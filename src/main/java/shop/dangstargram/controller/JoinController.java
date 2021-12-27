@@ -15,7 +15,7 @@ import javax.validation.Valid;
 public class JoinController {
 
     @PutMapping("/user/join")
-    public ResponseEntity<String> join(@Valid @RequestBody JoinRequireDto.Request joinRequireRequestDto) {
+    public ResponseEntity<String> join(@Valid @RequestBody final JoinRequireDto.Request joinRequireRequestDto) {
         System.out.println(joinRequireRequestDto);
         return new ResponseEntity<>("join", HttpStatus.OK);
     }
