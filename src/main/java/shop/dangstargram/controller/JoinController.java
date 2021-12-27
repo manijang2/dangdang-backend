@@ -7,12 +7,16 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import shop.dangstargram.dto.JoinRequireDto;
+
+import javax.validation.Valid;
 
 @RestController
 public class JoinController {
-    // 가입
+
     @PutMapping("/user/join")
-    public ResponseEntity join() {
-        return new ResponseEntity(HttpStatus.OK);
+    public ResponseEntity<String> join(@Valid @RequestBody JoinRequireDto.Request joinRequireRequestDto) {
+        System.out.println(joinRequireRequestDto);
+        return new ResponseEntity<>("join", HttpStatus.OK);
     }
 }
