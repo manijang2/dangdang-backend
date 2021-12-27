@@ -3,8 +3,7 @@ name: freelec-springboot2-webservice
 on:
   push:
     branches:
-      - version/2020-12-11  # push되면 실행될 브랜치를 선택합니다.
-      # ex) master (저는 version/2020-12-11 브랜치로 지정)
+      - feature/EB_연동_#2
   workflow_dispatch: # 수동 실행
 
 jobs:
