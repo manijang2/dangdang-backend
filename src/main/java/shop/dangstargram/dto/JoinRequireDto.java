@@ -11,15 +11,16 @@ public class JoinRequireDto {
 
     @Getter
     @ToString
+    @RequiredArgsConstructor
     public static class Request {
         @NotEmpty
         @Size(min=4, max=20)
-        private String id;
+        private final String id;
         @NotEmpty
         @Size(min=4, max=20)
-        private String password;
+        private final String password;
         @Email
         @NotEmpty
-        private String email;
+        private final String email;
     }
 }
