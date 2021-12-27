@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 @ToString
 public enum ExceptionEnum {
     REQUEST_PARAMETER_MISMATH_EXCEPTION(HttpStatus.BAD_REQUEST, "E0001", "요청 파라미터가 누락되었습니다."),
+    REQUEST_METHOD_MISMATH_EXCEPTION(HttpStatus.BAD_REQUEST, "E0002", "요청 방식이 잘못 되었습니다."),
     NOT_DEFINE_EXCEPTION(HttpStatus.INTERNAL_SERVER_ERROR, "E9999", "정의되어 있지 않은 예외입니다.");
 
     private final HttpStatus status;

@@ -1,6 +1,7 @@
 package shop.dangstargram.exception;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -18,11 +19,19 @@ public class ApiExceptionAdvice {
     }
 
     @ExceptionHandler({MethodArgumentNotValidException.class})
-    public ResponseEntity<ApiExceptionDto> methodArgumentNotValidExceptionHandler(HttpServletRequest request, final Exception e) {
+    public ResponseEntity<ApiExceptionDto> methodArgumentNotValidExceptionHandler(HttpServletRequest request, final MethodArgumentNotValidException e) {
         e.printStackTrace();
         return ResponseEntity
                 .status(ExceptionEnum.REQUEST_PARAMETER_MISMATH_EXCEPTION.getStatus())
                 .body(new ApiExceptionDto(ExceptionEnum.REQUEST_PARAMETER_MISMATH_EXCEPTION.getCode(), ExceptionEnum.REQUEST_PARAMETER_MISMATH_EXCEPTION.getMessage()));
+    }
+
+    @ExceptionHandler({HttpRequestMethodNotSupportedException.class})
+    public ResponseEntity<ApiExceptionDto> httpRequestMethodNotSupportedExceptionHandler(HttpServletRequest request, final HttpRequestMethodNotSupportedException e) {
+        e.printStackTrace();
+        return ResponseEntity
+                .status(ExceptionEnum.REQUEST_PARAMETER_MISMATH_EXCEPTION.getStatus())
+                .body(new ApiExceptionDto(ExceptionEnum.REQUEST_METHOD_MISMATH_EXCEPTION.getCode(), ExceptionEnum.REQUEST_METHOD_MISMATH_EXCEPTION.getMessage()));
     }
 
     @ExceptionHandler({Exception.class})
