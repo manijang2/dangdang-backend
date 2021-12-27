@@ -13,12 +13,7 @@ public enum ExceptionEnum {
 
     private final HttpStatus status;
     private final String code;
-    private String message;
-
-    ExceptionEnum(HttpStatus status, String code) {
-        this.status = status;
-        this.code = code;
-    }
+    private final String message;
 
     ExceptionEnum(HttpStatus status, String code, String message) {
         this.status = status;
