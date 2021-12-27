@@ -17,11 +17,19 @@ public class ApiExceptionAdvice {
                 .body(new ApiExceptionDto(e.getError().getCode(), e.getError().getMessage()));
     }
 
+    @ExceptionHandler({MethodArgumentNotValidException.class})
+    public ResponseEntity<ApiExceptionDto> methodArgumentNotValidExceptionHandler(HttpServletRequest request, final Exception e) {
+        e.printStackTrace();
+        return ResponseEntity
+                .status(ExceptionEnum.REQUEST_PARAMETER_MISMATH_EXCEPTION.getStatus())
+                .body(new ApiExceptionDto(ExceptionEnum.REQUEST_PARAMETER_MISMATH_EXCEPTION.getCode(), ExceptionEnum.REQUEST_PARAMETER_MISMATH_EXCEPTION.getMessage()));
+    }
+
     @ExceptionHandler({Exception.class})
     public ResponseEntity<ApiExceptionDto> defaultExceptionHandler(HttpServletRequest request, final Exception e) {
         e.printStackTrace();
         return ResponseEntity
-                .status(ExceptionEnum.REQUEST_PARAMETER_MISMATH_EXCEPTION.getStatus())
+                .status(ExceptionEnum.NOT_DEFINE_EXCEPTION.getStatus())
                 .body(new ApiExceptionDto(ExceptionEnum.NOT_DEFINE_EXCEPTION.getCode(), e.getMessage()));
     }
 }
