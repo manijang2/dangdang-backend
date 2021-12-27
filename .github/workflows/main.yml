@@ -3,7 +3,7 @@ name: freelec-springboot2-webservice
 on:
   push:
     branches:
-      - feature/EB_연동_#2
+      - release
   workflow_dispatch: # 수동 실행
 
 jobs:
