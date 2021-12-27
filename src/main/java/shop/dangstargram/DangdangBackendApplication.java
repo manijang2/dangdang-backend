@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DangdangBackendApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(DangdangBackendApplication.class, args); //
+        SpringApplication.run(DangdangBackendApplication.class, args);
     }
 
 }
