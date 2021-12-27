@@ -17,7 +17,7 @@ public class ApiExceptionAdvice {
                 .body(new ApiExceptionDto(e.getError().getCode(), e.getError().getMessage()));
     }
 
-    @ExceptionHandler({MethodArgumentNotValidException.class})
+    @ExceptionHandler({Exception.class})
     public ResponseEntity<ApiExceptionDto> defaultExceptionHandler(HttpServletRequest request, final Exception e) {
         e.printStackTrace();
         return ResponseEntity
