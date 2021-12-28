@@ -22,4 +22,10 @@ public class JoinRequireDto {
         @NotEmpty
         private final String email;
     }
+
+    @RequiredArgsConstructor
+    public static class Response {
+        private final String result;
+        private final String desc;
+    }
 }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import shop.dangstargram.dto.JoinRequireDto;
+import shop.dangstargram.service.JoinService;
 
 import javax.validation.Valid;
 
@@ -18,9 +19,15 @@ public class JoinController {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @PutMapping("/user/join")
-    public ResponseEntity<String> join(@Valid @RequestBody final JoinRequireDto.Request joinRequireRequestDto) {
+    private final JoinService joinService;
 
-        return new ResponseEntity<>("join", HttpStatus.OK);
+    public JoinController(JoinService joinService) {
+        this.joinService = joinService;
+    }
+
+    @PutMapping("/user/join")
+    public ResponseEntity<JoinRequireDto.Response> join(@Valid @RequestBody final JoinRequireDto.Request joinRequireRequestDto) {
+        JoinRequireDto.Response response = joinService.join(joinRequireRequestDto);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }
