@@ -27,6 +27,9 @@ public class JoinController {
 
     @PutMapping("/user/join")
     public ResponseEntity<JoinRequireDto.Response> join(@Valid @RequestBody final JoinRequireDto.Request joinRequireRequestDto) {
+
+
+
         JoinRequireDto.Response response = joinService.join(joinRequireRequestDto);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
