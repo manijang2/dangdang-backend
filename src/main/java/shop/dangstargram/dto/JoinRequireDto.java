@@ -23,6 +23,7 @@ public class JoinRequireDto {
         private final String email;
     }
 
+    @Getter
     @RequiredArgsConstructor
     public static class Response {
         private final String result;

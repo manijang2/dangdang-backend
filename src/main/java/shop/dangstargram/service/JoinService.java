@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 @Service
 public class JoinService {
     public JoinRequireDto.Response join(@NotNull final JoinRequireDto.Request request) {
-        JoinRequireDto.Response response = new JoinRequireDto.Response("success", "가입에 성공하였습니다.");
+        JoinRequireDto.Response response = new JoinRequireDto.Response("success", "ㅅㄷㄴㅅ");
         return response;
     }
 }
