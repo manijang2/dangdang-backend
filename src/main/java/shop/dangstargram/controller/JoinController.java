@@ -20,15 +20,6 @@ public class JoinController {
 
     @PutMapping("/user/join")
     public ResponseEntity<String> join(@Valid @RequestBody final JoinRequireDto.Request joinRequireRequestDto) {
-        System.out.println(joinRequireRequestDto);
-
-
-        logger.trace("Trace Level 테스트");
-        logger.debug("DEBUG Level 테스트");
-        logger.info("INFO Level 테스트");
-        logger.warn("Warn Level 테스트");
-        logger.error("ERROR Level 테스트");
-
 
         return new ResponseEntity<>("join", HttpStatus.OK);
     }
