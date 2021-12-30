@@ -3,6 +3,8 @@ package shop.dangstargram.service;
 import org.springframework.stereotype.Service;
 import shop.dangstargram.domain.User;
 import shop.dangstargram.dto.JoinRequireDto;
+import shop.dangstargram.exception.ApiException;
+import shop.dangstargram.exception.ExceptionEnum;
 import shop.dangstargram.repository.UserRepository;
 
 import javax.validation.constraints.NotNull;
@@ -17,10 +19,13 @@ public class JoinService {
 
     public JoinRequireDto.Response join(@NotNull final JoinRequireDto.Request request) {
 
+        userRepository.findById(request.getId()).ifPresent(m -> {
+            throw new ApiException(ExceptionEnum.DUPLICATE_JOIN_ID_EXCEPTION);
+        });
+
         User joinUser = new User(request.getId(), request.getPassword(), request.getEmail());
         userRepository.save(joinUser);
 
-        JoinRequireDto.Response response = new JoinRequireDto.Response("success", "가입에 성공하였습니다.");
-        return response;
+        return new JoinRequireDto.Response("success", "가입에 성공하였습니다.");
     }
 }

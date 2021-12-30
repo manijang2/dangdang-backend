@@ -1,9 +1,7 @@
 package shop.dangstargram.controller;
 
-import org.apache.coyote.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -18,7 +16,6 @@ import javax.validation.Valid;
 public class JoinController {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
-
     private final JoinService joinService;
 
     public JoinController(JoinService joinService) {
@@ -27,8 +24,6 @@ public class JoinController {
 
     @PutMapping("/user/join")
     public ResponseEntity<JoinRequireDto.Response> join(@Valid @RequestBody final JoinRequireDto.Request joinRequireRequestDto) {
-
-
 
         JoinRequireDto.Response response = joinService.join(joinRequireRequestDto);
         return new ResponseEntity<>(response, HttpStatus.OK);
