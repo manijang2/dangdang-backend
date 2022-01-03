@@ -1,1 +1,1 @@
-# dangdang-backend
+# dangstargram-backend
