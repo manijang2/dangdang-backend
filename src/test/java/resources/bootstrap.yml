@@ -1,8 +1,0 @@
-aws:
-  secretsmanager:
-    name: dangdang-backend
-    prefix: /secret
-cloud:
-  aws:
-    region:
-      static: ap-northeast-2
